@@ -11,7 +11,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <div class="drawer-content flex flex-col">
     <!-- Navbar -->
     <div class="navbar bg-base-300 w-full">
-      <div class="flex-none lg:hidden">
+
         <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ import { RouterLink, RouterView } from 'vue-router'
             ></path>
           </svg>
         </label>
-      </div>
+ 
         <div class="flex-1">
     <a class="btn btn-ghost text-xl">Pos <p class="text-indigo-600">Exemple</p></a> 
   </div>
