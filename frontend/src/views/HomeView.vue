@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- Header section -->
     <header>
       <div class="drawer">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
@@ -35,20 +36,22 @@
             <li><a>สินค้า</a></li>
             <li><a>รายงาน</a></li>
             <li><a>ตั้งค่า</a></li>
-            <li><a>ออกจากระบบ</a></li>
+            <li><a @click="handleLogout">ออกจากระบบ</a></li>
           </ul>
         </div>
       </div>
     </header>
 
+    <!-- Main content area for the home page -->
     <main class="container mx-auto p-8 h-screen">
-        <HomePage />
+      <HomePage />
     </main>
 
+    <!-- Footer section -->
     <footer class="footer footer-center p-4 bg-base-300 text-base-content mt-8">
       <div>
         <p>Pos Example</p>
-        <p>Developed by Yangpara</p>
+        <p>Developed by : -</p>
         <p>Copyright © 2025 - All right reserved by Pos Example</p>
       </div>
     </footer>
@@ -56,9 +59,19 @@
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router'
-import { ref } from 'vue'   
-import HomePage from '../components/icons/HomePage.vue'
+import { useRouter } from 'vue-router' // ส่วนที่แก้ไข: นำเข้า useRouter
+import HomePage from '@/components/icons/HomePage.vue'
+const router = useRouter()
+
+// ฟังก์ชันสำหรับออกจากระบบ
+const handleLogout = () => {
+  // ลบข้อมูลเซสชันออกจาก localStorage
+  localStorage.removeItem('isLoggedIn')
+  localStorage.removeItem('sessionExpires')
+  
+  // นำทางผู้ใช้กลับไปที่หน้าล็อกอิน
+  router.push({ name: 'login' })
+}
 </script>
 
 <style scoped>
