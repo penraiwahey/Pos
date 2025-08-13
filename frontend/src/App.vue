@@ -5,13 +5,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   
-<header>
-
-  </header>
   <main class="min-h-screen">
     <RouterView />
   </main>
-
 
 </template>
 

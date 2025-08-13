@@ -12,4 +12,8 @@
     align-items: center;
   }
 }
+
+h1{
+  color: #333;
+}
 </style>
