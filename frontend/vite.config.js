@@ -12,6 +12,11 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
   ],
+  server: {
+    allowedHosts: [
+      'eab0cbf05b76.ngrok-free.app' // ใส่ host ของ ngrok ที่ได้มา
+    ]
+  }, // 👈 ต้องมี comma ตรงนี้
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

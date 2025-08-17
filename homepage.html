@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>POS Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f3f4f6; /* bg-gray-100 */
+      color: black;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    /* เมนูด้านซ้าย */
+    .menu {
+      background: #f97316; /* orange-500 */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      height: 100vh;
+      width: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu li {
+      margin: 10px 0;
+    }
+
+    .menu img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .divider {
+      width: 100%;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      margin: 5px 0;
+    }
+
+    .menu a svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+      cursor: pointer;
+    }
+
+    /* เนื้อหาด้านขวา */
+    .content {
+      flex: 1;
+      background: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    .tab {
+      padding: 10px 16px;
+      cursor: pointer;
+      position: relative;
+      color: black;
+    }
+
+    .tab.active {
+      font-weight: bold;
+      color: #f97316; /* orange */
+    }
+
+    .tab.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 3px;
+      background: #f97316;
+    }
+
+    .table-container {
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    table th {
+      background: #f3f4f6;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- เมนูด้านซ้าย -->
+    <ul class="menu">
+      <li><img src="./frontend/src/assets/logo.png" alt="Logo"></li>
+      <div class="divider"></div>
+      <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 
+          1 0 001 1h3m10-11l2 2m-2-2v10a1 
+          1 0 01-1 1h-3m-6 0a1 1 0 
+          001-1v-4a1 1 0 011-1h2a1 1 0 
+          011 1v4a1 1 0 001 1m-6 0h6"/>
+      </svg></a></li>
+
+      <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 
+          12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg></a></li>
+
+      <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9 19v-6a2 2 0 00-2-2H5a2 
+          2 0 00-2 2v6a2 2 0 002 
+          2h2a2 2 0 002-2zm0 0V9a2 
+          2 0 012-2h2a2 2 0 012 
+          2v10m-6 0a2 2 0 002 
+          2h2a2 2 0 002-2m0 0V5a2 
+          2 0 012-2h2a2 2 0 012 
+          2v14a2 2 0 01-2 2h-2a2 
+          2 0 01-2-2z"/>
+      </svg></a></li>
+    </ul>
+
+    <!-- เนื้อหาหลัก -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active">การจัดการใบรายการจัดส่ง</div>
+        <div class="tab">ตำแหน่งสินค้าคงคลัง</div>
+        <div class="tab">บันทึกการจัดการสินค้า</div>
+        <div class="tab">รับสินค้า</div>
+        <div class="tab">จัดการใบจัดซื้อ</div>
+        <div class="tab">ข้อมูลสินค้า</div>
+        <div class="tab">จัดการคำสั่งซื้อ</div>
+        <div class="tab">บันทึกการดาวน์โหลด</div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Job</th>
+              <th>Favorite Color</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1</th>
+              <td>Cy Ganderton</td>
+              <td>Quality Control Specialist</td>
+              <td>Blue</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
+            </tr>
+            <tr>
+              <th>3</th>
+              <td>Brice Swyre</td>
+              <td>Tax Accountant</td>
+              <td>Red</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -272,7 +272,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('sessionExpires', expirationDate.toISOString());
       }
-      window.location.href = 'home.html'; // เปลี่ยนลิงก์ไปหน้า home
+      window.location.href = 'homepage.html'; // เปลี่ยนลิงก์ไปหน้า home
     });
   } else {
     Swal.fire({
@@ -290,7 +290,7 @@ window.addEventListener('load', function() {
   var sessionExpiration = localStorage.getItem('sessionExpires');
 
   if (storedSession && new Date() < new Date(sessionExpiration)) {
-    window.location.href = 'home.html';
+    window.location.href = 'homepage.html';
   }
 });
 </script>

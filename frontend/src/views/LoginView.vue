@@ -6,12 +6,12 @@
 
       <div class="flex flex-col items-center h-1/3 text-white mb-8">
         <div class="fixed top-5 left-5">
-        <img src="@/assets/logo.png" alt="Logo" class="w-24 h-24 radio border-white" />
+        <img src="@/assets/LOGO2.png" alt="Logo" class="w-24 h-24 radio border-white" />
         </div>
         <p class="text-white text-3xl font-bold text-center leading-relaxed">
           คำอธิบายหรือข้อความต้อนรับ<br/>เว็บไซต์ Ecommerce
         </p>
-        <img src="@/assets/logo.png" alt="Logo" class="w-64 h-64 mt-20 radio border-4 border-white" />
+        <img src="@/assets/LOGO2.png" alt="Logo" class="w-64 h-64 mt-20 radio border-4 border-white" />
 
       </div>
       <div class="flex flex-col items-center justify-center h-1/3">
@@ -43,13 +43,23 @@
           class="input input-bordered w-full rounded-lg px-4 py-3 mb-6 bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
           v-model="email"
         /> 
-        
-        <input 
-          type="password" 
-          placeholder="Password" 
-          class="input input-bordered w-full rounded-lg px-4 py-3 mb-6 bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500" 
-          v-model="password"
-        /> 
+        <div class="relative w-full">
+          <input 
+            :type="showPassword ? 'text' : 'password'"
+            placeholder="Password" 
+            class="input input-bordered w-full rounded-lg px-4 py-3 mb-6 bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 pr-10" 
+            v-model="password"
+          />
+           <button 
+              type="button" 
+              @click="togglePasswordVisibility" 
+              class="absolute inset-y-0 right-0 flex items-center px-4 text-gray-600 hover:text-gray-800"
+              aria-label="Toggle password visibility"
+            >
+              <i :class="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+          </button>
+        </div>
+          
 
         <div class="flex justify-between items-center mb-6">
           <label class="label cursor-pointer flex items-center">
@@ -80,10 +90,12 @@ import Swal from 'sweetalert2'
 const email = ref('')
 const password = ref('')
 const rememberMe = ref(false) 
-
+const showPassword = ref(false);
 
 const router = useRouter()
-
+function togglePasswordVisibility() {
+  showPassword.value = !showPassword.value;
+}
 
 onMounted(() => {
   const storedSession = localStorage.getItem('isLoggedIn')
@@ -99,7 +111,7 @@ onMounted(() => {
 // ฟังก์ชันสำหรับจัดการการล็อกอิน
 const handleLogin = () => {
   // จำลองการตรวจสอบข้อมูลการล็อกอิน
-  if (email.value === 'user@example.com' && password.value === 'password123') {
+  if (email.value === 'E@E.EE' && password.value === 'Ka74000') {
     // ถ้าล็อกอินสำเร็จ
     Swal.fire({
       title: 'สำเร็จ!',
@@ -142,5 +154,14 @@ const handleLogin = () => {
   margin: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.inset-y-0 {
+  top: 0;
+  bottom: 0;
+}
+
+button.absolute {
+    transform: translateY(-12px); 
 }
 </style>
